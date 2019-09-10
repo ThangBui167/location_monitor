@@ -1,0 +1,25 @@
+<launch>
+	<include file="$(find location_monitor)/launch/my_turtlebot_world.launch" />
+	<include file="$(find location_monitor)/launch/my_amcl.launch" />
+
+  	<!-- Rviz base -->
+ 	<include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+	
+	<node name="input_parameter" pkg="location_monitor" type="input_parameter.py"  output="screen">
+		<param name="input_x" value="0" />
+    		<param name="input_y" value="0" />
+    		<param name="input_z" value="0" />
+    		<param name="frame_id" value="1" /> <!-- 1: map , 2: odom -->
+    		<param name="polygon_points" value="4" />
+	</node>
+
+	<node name="Case2" pkg="location_monitor" type="Case2.py" output="screen">
+		<param name="vel_out_topic" value="/cmd_vel_mux/input/teleop" />		
+    		
+		<!-- to remap the speed subscribed from other package -->
+		<remap from="vel_in" to="cmd_vel"/>
+	
+	</node>
+
+	
+</launch>

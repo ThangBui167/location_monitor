@@ -1,0 +1,7 @@
+1. back up la back up voi chu "b" chu khong phai "p"
+
+2. roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=/opt/ros/kinetic/share/turtlebot_gazebo/worlds/corridor.world =>>> Chay world corridor
+
+3.echo "export TURTLEBOT_GAZEBO_WORLD_FILE=/opt/ros/kinetic/share/turtlebot_gazebo/worlds/corridor.world" >> .bashrc
+
+
